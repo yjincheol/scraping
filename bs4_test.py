@@ -16,7 +16,7 @@ soup = BeautifulSoup(res.text,"lxml")
 # print(soup.a['href']) #menu
 # print(soup.find('a', attrs={'class': 'Nbtn_upload'})) #<a class="Nbtn_upload" href="/mypage/myActivity" onclick="nclk_v2(event,'olk.upload');">웹툰 올리기</a>
 # print(soup.find('li',attrs={'class': 'rank01'}))
-rank1 = soup.find('li',attrs={'class': 'rank01'})
+# rank1 = soup.find('li',attrs={'class': 'rank01'})
 # print(rank1.a.get_text())
 # rank2 = rank1.next_sibling.next_sibling
 # rank3 = rank2.next_sibling.next_sibling
@@ -30,4 +30,10 @@ rank1 = soup.find('li',attrs={'class': 'rank01'})
 # print(rank3.a.get_text())
 # rank2 = rank3.find_previous_sibling('li')
 # print(rank2.a.get_text())
-print(rank1.find_next_siblings('li'))
+# print(rank1.find_next_siblings('li'))
+
+# 네이버 웹툰 전체목록 가져오기
+cartoons = soup.find_all('a',attrs={'class': 'title'})
+
+for cartoon in cartoons:
+    print(cartoon.get_text())
